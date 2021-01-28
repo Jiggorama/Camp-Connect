@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Site.destroy_all
+
+100.times do |i|
+  Site.create!(name: "Site #{i+1}",image: "No url provided", description: 'no description provided' )
+end
+
+puts "#{Site.count} campsites created"
