@@ -9,33 +9,22 @@ _**Camp Connect**_ is a campsite tracking tool for Green Ridge state forest in F
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
-
-<br>
-
-### Goals
-
-- _I wanna be the very best,_
-- _like no one ever was._
-- _To catch them is my true quest._
-- _To train them is my cuuaaaseeee._
-- _etc._
+- User Auth
+- Campsite detail page with rendered comments
+- User can leave comments about a campsite
+- Search and sort campsites numerically
 
 <br>
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-|    Material UI   | _Lorem ipsum dolor sit amet, consectetur._ |
-|   Ruby on Rails  | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Ruby on Rails  | _Lorem ipsum dolor sit amet, consectetur._ |
+|      React       | Front end javascript library|
+|   React Router   | Screen navigation for react |
+|    Material UI   | Component library for react |
+|   Ruby on Rails  | Backend framework for building databases |
+
 
 <br>
 
@@ -43,62 +32,76 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
-
-![https://whimsical.com/greenridgewires-Lwyc1cdQU62658aiwyACp7](url)
+> - link https://whimsical.com/greenridgewires-Lwyc1cdQU62658aiwyACp7
 
 - Landing and Search
 
-![imageAlt](https://imgur.com/fBQNFf6)
+![imageAlt](https://i.imgur.com/fBQNFf6.png)
 
 - Sign up and Sign in
 
-![imageAlt](https://imgur.com/a3cY09e)
+![imageAlt](https://i.imgur.com/a3cY09e.png)
 
 - Site List and Site Detail
 
-![imageAlt](https://imgur.com/B2Cf6jR)
+![imageAlt](https://i.imgur.com/B2Cf6jR.png)
 
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. 
+> - link https://whimsical.com/greenridgeflow-LedaW93NpWbsdptVXLmNTo
+
+![imageAlt](https://i.imgur.com/8Mq95W9.png)
 
 #### Component Hierarchy
-
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
 
 ``` structure
 
 src
-|__ assets/
-      |__ fonts
-      |__ graphics
-      |__ images
-      |__ mockups
-|__ components/
-      |__ Header.jsx
-|__ services/
+|__ Components/
+      |__ search
+      |__ DeleteComment
+|__ Layout/
+      |__ Header
+      |__ Nav
+      |__ Layout
+      |__ footer
+|__ Container/
+      |__ Container
+|__ Screens/
+      |__ Landing
+      |__ SignUp
+      |__ SignIn
+      |__ SiteList
+      |__ SiteDetail
+      |__ Comments
+      |__ EditComment
+ |__ Container/
+      |__ ApiConfig
+      |__ Users
+      |__ Comments
 
 ```
 
-#### Component Tree
-
-> Use this section to include a link to your component tree.
-
-[Component tree](url)
-
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
+| Add Contact Form    |    L     |     3 hrs      |    --     |    TBD    |
+| Back end build  |    H     |     3 hrs      |     --     |     TBD     |
+|Back end Auth |    H     |     3 hrs      |     --    |     TBD     |
+| Campsite seed data |    H     |     3 hrs      |    --     |     TBD     |
+| Landing Page |    H     |     3 hrs      |     --     |     TBD     |
+| List all sites |    H     |     3 hrs      |     --     |     TBD     |
+| SiteDetail |    H     |     3 hrs      |     --     |     TBD     |
+| FrontendAuth |    H     |     3 hrs      |     --     |     TBD     |
+| RenderComments |    H     |     3 hrs      |     --     |     TBD     |
+| Services Api Calls |    H     |     3 hrs      |     --     |     TBD     |
+| Edit comments |    H     |     3 hrs      |     --     |     TBD     |
+| Delete Comments |    H     |     3 hrs      |     --     |     TBD     |
+| TOTAL               |          |     6 hrs      |    --     |     TBD     |
 
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
@@ -106,7 +109,9 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
+> - link https://drive.google.com/file/d/1SsiPgVlNviloDpPXeP23vMPld5kxWtPw/view?usp=sharing
+
+> ![imageAlt](https://i.imgur.com/AuoN2Uy.png)
 
 <br>
 
@@ -114,7 +119,7 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+> I want to be able to sort campsites by features
 
 ***
 
