@@ -88,7 +88,6 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |    --     |    TBD    |
 | Back end build  |    H     |     3 hrs      |     --     |     TBD     |
 | Back end controllers  |    H     |     3 hrs      |     --     |     TBD     |
 |Back end Auth |    H     |     3 hrs      |     --    |     TBD     |
@@ -106,7 +105,7 @@ src
 | SiteDetail styling|    H     |     3 hrs      |     --     |     TBD     |
 | RenderComments styling|    H     |     3 hrs      |     --     |     TBD     |
 | Advanced Css |    H     |     3 hrs      |     --     |     TBD     |
-| TOTAL               |          |     54 hrs      |    --     |     TBD     |
+| TOTAL               |          |     51 hrs      |    --     |     TBD     |
 
 
 <br>
