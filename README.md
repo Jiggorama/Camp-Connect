@@ -51,7 +51,7 @@ _**Camp Connect**_ is a campsite tracking tool for Green Ridge state forest in F
 
 > - link https://whimsical.com/greenridgeflow-LedaW93NpWbsdptVXLmNTo
 
-![imageAlt](https://i.imgur.com/8Mq95W9.png)
+![imageAlt](https://i.imgur.com/NJSjCNa.png)
 
 #### Component Hierarchy
 
