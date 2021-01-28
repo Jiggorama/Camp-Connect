@@ -5,24 +5,25 @@ class SitesController < ApplicationController
   def index
     @sites = Site.all
 
-    render json: @sites
+    render json: @sites, include: :users
   end
 
   # GET /sites/1
   def show
-    render json: @site
+  
+    render json: @site, include: :users
   end
 
   # POST /sites
-  def create
-    @site = Site.new(site_params)
+  # def create
+  #   @site = Site.new(site_params)
 
-    if @site.save
-      render json: @site, status: :created, location: @site
-    else
-      render json: @site.errors, status: :unprocessable_entity
-    end
-  end
+  #   if @site.save
+  #     render json: @site, status: :created, location: @site
+  #   else
+  #     render json: @site.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # PATCH/PUT /sites/1
   def update
@@ -34,9 +35,9 @@ class SitesController < ApplicationController
   end
 
   # DELETE /sites/1
-  def destroy
-    @site.destroy
-  end
+  # def destroy
+  #   @site.destroy
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

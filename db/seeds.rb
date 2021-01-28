@@ -6,7 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Comment.destroy_all
+User.destroy_all
 Site.destroy_all
+
+@admin = User.create!(username: 'admin', email: 'admin@email.com', password: '123456')
+
+puts "#{User.count} admin created"
 
 100.times do |i|
   Site.create!(name: "Site #{i+1}",image: "No url provided", description: 'no description provided' )
