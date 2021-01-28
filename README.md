@@ -17,10 +17,10 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 ### Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
+- _I wanna be the very best,_
+- _like no one ever was._
+- _To catch them is my true quest._
+- _To train them is my cuuaaaseeee._
 - _etc._
 
 <br>
@@ -33,9 +33,9 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 | :--------------: | :----------------------------------------- |
 |      React       | _Lorem ipsum dolor sit amet, consectetur._ |
 |   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|    Material UI   | _Lorem ipsum dolor sit amet, consectetur._ |
+|   Ruby on Rails  | _Lorem ipsum dolor sit amet, consectetur._ |
+|  Ruby on Rails  | _Lorem ipsum dolor sit amet, consectetur._ |
 
 <br>
 
@@ -45,29 +45,20 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
-![Dummy Link](url)
+![https://whimsical.com/greenridgewires-Lwyc1cdQU62658aiwyACp7](url)
 
-- Desktop Landing
+- Landing and Search
 
-![Dummy Link](url)
+![imageAlt](https://imgur.com/fBQNFf6)
 
-- Desktop Hero
+- Sign up and Sign in
 
-![Dummy Link](url)
+![imageAlt](https://imgur.com/a3cY09e)
 
-- Resource Index
+- Site List and Site Detail
 
-![Dummy Link](url)
+![imageAlt](https://imgur.com/B2Cf6jR)
 
-- Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
 
 #### Component Tree
 
