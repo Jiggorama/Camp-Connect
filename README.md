@@ -90,6 +90,7 @@ src
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
 | Add Contact Form    |    L     |     3 hrs      |    --     |    TBD    |
 | Back end build  |    H     |     3 hrs      |     --     |     TBD     |
+| Back end controllers  |    H     |     3 hrs      |     --     |     TBD     |
 |Back end Auth |    H     |     3 hrs      |     --    |     TBD     |
 | Campsite seed data |    H     |     3 hrs      |    --     |     TBD     |
 | Landing Page |    H     |     3 hrs      |     --     |     TBD     |
@@ -100,7 +101,12 @@ src
 | Services Api Calls |    H     |     3 hrs      |     --     |     TBD     |
 | Edit comments |    H     |     3 hrs      |     --     |     TBD     |
 | Delete Comments |    H     |     3 hrs      |     --     |     TBD     |
-| TOTAL               |          |     6 hrs      |    --     |     TBD     |
+| Landing Page styling|    H     |     3 hrs      |     --     |     TBD     |
+| List all sites styling|    H     |     3 hrs      |     --     |     TBD     |
+| SiteDetail styling|    H     |     3 hrs      |     --     |     TBD     |
+| RenderComments styling|    H     |     3 hrs      |     --     |     TBD     |
+| Advanced Css |    H     |     3 hrs      |     --     |     TBD     |
+| TOTAL               |          |     54 hrs      |    --     |     TBD     |
 
 
 <br>
