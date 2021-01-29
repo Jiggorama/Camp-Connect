@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :update, :destroy]
-
+  
   # GET /sites
   def index
     @sites = Site.all
@@ -11,19 +11,16 @@ class SitesController < ApplicationController
   # GET /sites/1
   def show
   
-    render json: @site, include: :users
+    render json: @site, include: [:users, :comments] 
   end
 
   # POST /sites
-  # def create
-  #   @site = Site.new(site_params)
-
-  #   if @site.save
-  #     render json: @site, status: :created, location: @site
-  #   else
-  #     render json: @site.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def visited_by_user
+    @site = Site.find(params[:site_id])
+    @user = User.find(params[:user_id])
+    @user.sites << @site
+    render json: @user, include: :sites
+  end
 
   # PATCH/PUT /sites/1
   def update
@@ -35,9 +32,12 @@ class SitesController < ApplicationController
   end
 
   # DELETE /sites/1
-  # def destroy
-  #   @site.destroy
-  # end
+  def unvisited
+    @site = Site.find(params[:site_id])
+    @user = User.find(params[:user_id])
+    @user.sites.delete(@site)
+    render json: @user, include: :sites
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
