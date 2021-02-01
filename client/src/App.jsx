@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import Container from "./containers/Container";
 import Layout from "./shared/layout/Layout";
-import Login from "./screens/login/Login";
-import Register from "./screens/register/Register";
 import { loginUser, registerUser, verifyUser, removeToken } from "./services/userAuth";
 
 function App() {

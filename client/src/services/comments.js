@@ -1,7 +1,7 @@
 import api from './apiConfig';
 
 export const postComment = async (site_id, commentData) => {
-  const resp = await api.post(`/site/${site_id}/comments`, { comment: commentData });
+  const resp = await api.post(`/sites/${site_id}/comments`, { comment: commentData });
   return resp.data;
 }
 export const putComment = async (site_id, id, commentData) => {

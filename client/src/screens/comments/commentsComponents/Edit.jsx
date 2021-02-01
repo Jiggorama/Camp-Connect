@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 const Edit = (props) => {
   
@@ -7,22 +6,16 @@ const Edit = (props) => {
     content: ''
   })
   const { content } = formData;
-  const { foods, handleUpdate } = props;
-  const { id } = useParams();
+  const { campsite, close, handleUpdate, currentComment } = props;
 
   useEffect(() => {
     const prefillFormData = () => {
-      const foodItem = foods.find((foodItem) => {
-        return foodItem.id === Number(id)
-      })
       setFormData({
-        name: foodItem.name
+        content: currentComment.content
       })
     }
-    if (foods.length) {
       prefillFormData()
-    }
-  }, [foods])
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +27,8 @@ const Edit = (props) => {
   return (
     <form onSubmit={(e) => {
       e.preventDefault();
-      handleUpdate(id, formData);
+      handleUpdate(campsite.id, currentComment.id, formData);
+      close()
     }}>
       <h3>Edit Comment</h3>
       <label>Comment:

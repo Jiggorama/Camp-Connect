@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { deleteComment, putComment } from '../../services/comments';
+import { deleteComment, postComment, putComment } from '../../services/comments';
 import CustomModal from '../../components/customModal/CustomModal'
 import Edit from './commentsComponents/Edit';
 import Post from './commentsComponents/Post';
@@ -8,10 +8,14 @@ const Comments = (props) => {
   const { campsite, user, setCampsite } = props
   const [openPost, setOpenPost] = useState(false)
   const [openEdit, setOpenEdit] = useState(false)
+  const [currentComment, setCurrentComment] = useState()
 
   const handleOpenPost = () => setOpenPost(true);
   const handleClosePost = () => setOpenPost(false);
-  const handleOpenEdit = () => setOpenEdit(true);
+  const handleOpenEdit = (current) => {
+    setCurrentComment(current);
+    setOpenEdit(true);
+  }
   const handleCloseEdit = () => setOpenEdit(false);
   
   const handleDelete = async (id) => {
@@ -20,13 +24,19 @@ const Comments = (props) => {
       return comment.id !== id
     }))
   }
-  const handleUpdate = async (site_id, id, siteData) => {
-    const updatedComment = await putComment(site_id, id, siteData);
+  const handleUpdate = async (site_id, id, commentData) => {
+    const updatedComment = await putComment(site_id, id, commentData);
     setCampsite(prevState => prevState.comment.map(comment => {
       return comment.id === Number(id) ? updatedComment : comment
     }))
   }
-  
+  const handlePost = async (site_id, commentData) => {
+    const newComment = await postComment(site_id, commentData)
+    setCampsite(prevState => ({
+      ...prevState,
+      comments: [... newComment]
+    }))
+  }
   return (
     <>
       <h3>Comments</h3>
@@ -34,15 +44,15 @@ const Comments = (props) => {
       {campsite.comments.length ? 
         campsite.comments.map(comment => {
           return (
-            <>
+            <React.Fragment key={comment.id}>
             <p>{comment.user.username}</p>
             <p>{comment.content}</p>
             { user && comment.user_id === user.id ?
             <>
-            <button onClick={handleOpenEdit}>edit</button>
+            <button onClick={()=>handleOpenEdit(comment)}>edit</button>
             <button onClick={() => handleDelete(comment.id)}>delete</button>
             </> : <></>}
-            </>
+            </React.Fragment>
           )
         })
         :
@@ -54,7 +64,7 @@ const Comments = (props) => {
       >
         <Post
           close={handleClosePost}
-          // handleUpdate={handleCreate}
+          handlePost={handlePost}
           campsite={campsite}
           setCampsite={setCampsite}
         />
@@ -68,6 +78,7 @@ const Comments = (props) => {
           handleUpdate={handleUpdate}
           campsite={campsite}
           setCampsite={setCampsite}
+          currentComment = {currentComment}
         />
       </CustomModal>
     </>

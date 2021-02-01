@@ -14,3 +14,13 @@ export const putSite = async (id, siteData) => {
   const resp = await api.put(`/sites/${id}`, { food: siteData });
   return resp.data;
 }
+
+export const visited = async (siteData) => {
+  const resp = await api.post('/visited', { siteData })
+  return resp.data
+}
+
+export const unvisited = async (siteData) => {
+  const resp = await api.delete('/visited', { siteData })
+  return resp.data
+}

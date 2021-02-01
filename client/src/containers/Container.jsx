@@ -7,8 +7,6 @@ import { getSites } from "../services/campsites";
 
 export default function MainContainer(props) {
   const [sites, setSites] = useState([]);
-
-  const history = useHistory();
   const { user } = props;
   useEffect(() => {
     const fetchSites = async () => {
@@ -17,11 +15,6 @@ export default function MainContainer(props) {
     }
     fetchSites();
   }, []);
-
-  
-
-
-
   return (
     <Switch>   
       <Route path='/sites/:id'>
