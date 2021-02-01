@@ -8,21 +8,12 @@ class SitesController < ApplicationController
     render json: @sites, include: :users
   end
 
-  # GET /sites/1
-  def show
-  
-    render json: @site, include: [:users, :comments] 
+  # GET /sites/:id
+  def show  
+    render json: @site, include: [:users, comments:{include: :user}] 
   end
 
-  # POST /sites
-  def visited_by_user
-    @site = Site.find(params[:site_id])
-    @user = User.find(params[:user_id])
-    @user.sites << @site
-    render json: @user, include: :sites
-  end
-
-  # PATCH/PUT /sites/1
+  # PUT /sites/:id
   def update
     if @site.update(site_params)
       render json: @site
@@ -31,7 +22,15 @@ class SitesController < ApplicationController
     end
   end
 
-  # DELETE /sites/1
+  # POST /visited
+  def visited
+    @site = Site.find(params[:site_id])
+    @user = User.find(params[:user_id])
+    @user.sites << @site
+    render json: @user, include: :sites
+  end
+
+  # DELETE /visited
   def unvisited
     @site = Site.find(params[:site_id])
     @user = User.find(params[:user_id])
@@ -40,12 +39,10 @@ class SitesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_site
       @site = Site.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def site_params
       params.require(:site).permit(:name, :description, :image)
     end
