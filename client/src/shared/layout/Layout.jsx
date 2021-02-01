@@ -7,8 +7,8 @@ const Layout = (props) => {
   const {user, logout, handleLogin, handleRegister} = props
   return (
     <div className='layout'>
-    <header>
-      <h3><Link to ='/'>Camp Connect</Link></h3>
+    <header className ='header'>
+      <h3><Link to ='/'>Camp <br/>Connect</Link></h3>
       {user && <div className="user-name">{user.username}</div>}
         <Nav
           user={user}
