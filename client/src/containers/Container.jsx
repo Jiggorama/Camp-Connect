@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Landing from "../screens/landing/Landing";
 import SiteDetail from "../screens/siteDetail/SiteDetail";
 import Sites from "../screens/sites/Sites";

@@ -20,21 +20,29 @@ const Comments = (props) => {
   
   const handleDelete = async (id) => {
     await deleteComment(campsite.id, id);
-    setCampsite(prevState => prevState.comments.filter(comment => {
-      return comment.id !== id
+    setCampsite(prevState => ({
+      ...prevState,
+      comments: prevState.comments.filter(comment => {
+        return comment.id !== id       
+      })
     }))
   }
   const handleUpdate = async (site_id, id, commentData) => {
     const updatedComment = await putComment(site_id, id, commentData);
-    setCampsite(prevState => prevState.comment.map(comment => {
-      return comment.id === Number(id) ? updatedComment : comment
+    updatedComment.user = user
+    setCampsite(prevState => ({
+      ...prevState,
+      comments: prevState.comments.map(comment => {
+        return comment.id === Number(id) ? updatedComment : comment
+      })
     }))
   }
   const handlePost = async (site_id, commentData) => {
     const newComment = await postComment(site_id, commentData)
+    newComment.user = user
     setCampsite(prevState => ({
       ...prevState,
-      comments: [... newComment]
+      comments: [...prevState.comments, newComment]
     }))
   }
   return (
@@ -42,7 +50,7 @@ const Comments = (props) => {
       <h3>Comments</h3>
       {user && <button onClick={handleOpenPost}>Leave A Comment</button>}
       {campsite.comments.length ? 
-        campsite.comments.map(comment => {
+        campsite.comments.reverse().map(comment => {
           return (
             <React.Fragment key={comment.id}>
             <p>{comment.user.username}</p>
