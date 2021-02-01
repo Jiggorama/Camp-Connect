@@ -1,19 +1,32 @@
 import React from 'react'
 import './Nav.css'
-import { NavLink,Link } from 'react-router-dom'
+import { NavLink,} from 'react-router-dom'
+import CustomModal from '../../components/customModal/CustomModal'
+import Login from '../../screens/login/Login'
+import Register from "../../screens/register/Register";
 
 const Nav = (props) => {
-  const {user, logout} = props
+  const { user, logout, handleLogin, handleRegister } = props
+
+
+  const [openLogin, setOpenLogin] = React.useState(false);
+  const [openRegister, setOpenRegister] = React.useState(false);
+
+  const handleOpenLogin = () => setOpenLogin(true);
+  const handleCloseLogin = () => setOpenLogin(false);
+  const handleOpenRegister = () => setOpenRegister(true);
+  const handleCloseRegister = () => setOpenRegister(false);
+
 const authenticatedOptions = (
   <>
-    <Link className="link" onClick={logout}>Logout</Link>
+    <button className="link" onClick={logout}>Logout</button>
   </>
 )
 
 const unauthenticatedOptions = (
   <>
-    <NavLink className="link" to="/login">Login</NavLink>
-    <NavLink className="link" to="/register">Register</NavLink>
+    <button className="link" onClick={handleOpenLogin}>Login</button>
+    <button className="link" onClick={handleOpenRegister}>Register</button>
   </>
 )
 
@@ -25,10 +38,30 @@ const alwaysOptions = (
 )
 
   return (
-    <nav className='nav'>
-    {alwaysOptions}
-    {user ? authenticatedOptions : unauthenticatedOptions}    
-    </nav>
+    <>
+      <nav className='nav'>
+      {alwaysOptions}
+      {user ? authenticatedOptions : unauthenticatedOptions}    
+      </nav>
+      <CustomModal
+        open={openLogin}
+        close={handleCloseLogin}
+      >
+        <Login
+          handleLogin={handleLogin}
+          close={handleCloseLogin}
+        />
+      </CustomModal>
+      <CustomModal
+        open={openRegister}
+        close={handleCloseRegister} Register
+      >
+        <Register
+          close={handleCloseRegister}
+          handleRegister = {handleRegister}
+        />
+      </CustomModal>
+    </>
   )
 }
 

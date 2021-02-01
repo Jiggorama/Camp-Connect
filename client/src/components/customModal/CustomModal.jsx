@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import Login from '../login/Login';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -19,37 +18,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Landing = () => {
+export default function CustomModal(props) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const { open, close } = props
+  
   return (
     <div>
-      <h1>Green Ridge State Forest</h1>
-      <div>
-        <h3>about park</h3>
-        <p>lorum ipsum</p>
-      </div>
-      <div>
-        <h3>about site</h3>
-        <p>lorum ipsum</p>
-      </div>
-      <button type="button" onClick={handleOpen}>
-        react-transition-group
-      </button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         className={classes.modal}
         open={open}
-        onClose={handleClose}
+        onClose={() => close()}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -58,14 +38,11 @@ const Landing = () => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <Login/>
-            <div onClick={handleClose}>x</div>
-          </div>
+            {props.children}
+            <div onClick = {() => close()}>+</div>
+            </div>
         </Fade>
       </Modal>
     </div>
-    
   );
-};
-
-export default Landing;
+}

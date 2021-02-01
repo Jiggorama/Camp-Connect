@@ -1,19 +1,18 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:update, :destroy]
   before_action :authorize_request, only: [:create, :update, :destroy]
-  # GET /comments
-  # def index
-  #   @comments = Comment.all
 
-  #   render json: @comments
-  # end
+  def index
+    @site = Site.find(params[:site_id])
+    @comments = Comment.where(site_id: @site.id)
+    render json: @comments, include: :user
+  end
 
-  # GET /comments/1
   def show
     render json: @comment
   end
 
-  # POST /comments
+  # POST /sites/:site_id/comments
   def create
     @comment = Comment.new(comment_params)
     @comment.user = @current_user
@@ -27,7 +26,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1
+  # PUT /sites/:site_id/comments/:id
   def update
     if @comment.update(comment_params)
       render json: @comment
@@ -36,18 +35,16 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
+  # DELETE /sites/:site_id/comments/:id
   def destroy
     @comment.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def comment_params
       params.require(:comment).permit(:content)
     end

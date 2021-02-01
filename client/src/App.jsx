@@ -30,30 +30,27 @@ function App() {
     history.push('/')
   }
 
-  const handleLogout = () => {
+  const handleLogout = (e) => {
+    e.preventDefault()
     setCurrentUser(null);
     localStorage.removeItem('authToken');
     removeToken();
+    history.push('/')
   }
 
   return (
-    <Layout user={currentUser} handleLogout={handleLogout}>
+    <Layout
+      user={currentUser}
+      logout={handleLogout}
+      handleLogin={handleLogin}
+      handleRegister={handleRegister}
+    >
       <Switch>
-        <Route path='/login'>
-          <Login
-            handleLogin={handleLogin}
-          />
-        </Route>
-        <Route path='/register'>
-          <Register
-            handleRegister={handleRegister}
-          />
-        </Route>
-        {/* <Route path="/">
+        <Route path="/">
           <Container
-            currentUser={currentUser}
+            user={currentUser}
           />
-        </Route> */}
+        </Route>
       </Switch>
     </Layout>
   );
