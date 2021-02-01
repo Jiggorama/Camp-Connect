@@ -7,3 +7,11 @@
 .layout-children {
   flex: 2;
 }
+
+.header{
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+}
