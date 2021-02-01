@@ -24,7 +24,12 @@ const SiteDetail = (props) => {
   }
   const removeVisited = async () => {
     await unvisited(campsite.id, user.id)
-    
+    setCampsite(prevState => ({
+      ...prevState,
+      users: prevState.users.filter(current => {
+        return current.id !== user.id       
+      })
+    }))    
   }
 
 
