@@ -15,12 +15,12 @@ export const putSite = async (id, siteData) => {
   return resp.data;
 }
 
-export const visited = async (siteData) => {
-  const resp = await api.post('/visited', { siteData })
+export const visited = async (site_id, user_id) => {
+  const resp = await api.post('/visited', { site_id, user_id })
   return resp.data
 }
 
-export const unvisited = async (siteData) => {
-  const resp = await api.delete('/visited', { siteData })
+export const unvisited = async (site_id, user_id) => {
+  const resp = await api.delete('/visited', {data: { site_id, user_id }})
   return resp.data
 }

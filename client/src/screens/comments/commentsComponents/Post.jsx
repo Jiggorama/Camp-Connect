@@ -8,15 +8,6 @@ const Post = (props) => {
   const { content } = formData;
   const { campsite, close, handlePost} = props;
 
-  // useEffect(() => {
-  //   const prefillFormData = () => {
-  //     setFormData({
-  //       content: currentComment.content
-  //     })
-  //   }
-  //     prefillFormData()
-  // }, [])
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({

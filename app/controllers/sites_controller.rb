@@ -24,6 +24,7 @@ class SitesController < ApplicationController
 
   # POST /visited
   def visited
+    puts params, 'line 27'
     @site = Site.find(params[:site_id])
     @user = User.find(params[:user_id])
     @user.sites << @site
@@ -32,6 +33,7 @@ class SitesController < ApplicationController
 
   # DELETE /visited
   def unvisited
+    puts params, 'line 35'
     @site = Site.find(params[:site_id])
     @user = User.find(params[:user_id])
     @user.sites.delete(@site)
