@@ -3,6 +3,9 @@ import { deleteComment, postComment, putComment } from '../../services/comments'
 import CustomModal from '../../components/customModal/CustomModal'
 import Edit from './commentsComponents/Edit';
 import Post from './commentsComponents/Post';
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
+import './Comments.css'
 
 const Comments = (props) => {
   const { campsite, user, setCampsite } = props
@@ -47,24 +50,27 @@ const Comments = (props) => {
   }
   return (
     <>
-      <h3>Comments</h3>
+    {/* <div>Comments</div> */}
       {user && <button onClick={handleOpenPost}>Leave A Comment</button>}
+    <div className='comments'>
       {campsite.comments.length ? 
         campsite.comments.reverse().map(comment => {
           return (
-            <React.Fragment key={comment.id}>
-            <p>{comment.user.username}</p>
-            <p>{comment.content}</p>
-            { user && comment.user_id === user.id ?
-            <>
-            <button onClick={()=>handleOpenEdit(comment)}>edit</button>
-            <button onClick={() => handleDelete(comment.id)}>delete</button>
-            </> : <></>}
-            </React.Fragment>
+            <div className='comment' key={comment.id}>
+              <div className='info'>
+                <div>{comment.user.username}:</div>
+                { user && comment.user_id === user.id ?
+                  <div className = 'user-controls'>
+                  <div className='button' onClick={()=>handleOpenEdit(comment)}><EditIcon/></div>
+                  <div className='button' onClick={() => handleDelete(comment.id)}><DeleteIcon/></div>
+                </div> : <></>}
+              </div>
+              <div className='content'>{comment.content}</div>
+            </div>
           )
         })
         :
-        <p>Be the first to comment on {campsite.name}</p>
+        <div>Be the first to comment on {campsite.name}</div>
       }
       <CustomModal
         open={openPost}
@@ -89,7 +95,8 @@ const Comments = (props) => {
           currentComment = {currentComment}
         />
       </CustomModal>
-    </>
+      </div>
+      </>
   );
 };
 

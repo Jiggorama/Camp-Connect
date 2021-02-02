@@ -1,0 +1,56 @@
+.landing{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+min-height: 80vh;
+height: 100%;
+}
+
+.landing p{
+  margin: 0;
+  text-shadow: 1px 1px 1px #3d3d3d;
+}
+
+.park{
+  color: #cfcfcf;
+  flex-direction: column;
+  max-width: 320px;
+  margin-top: .6em;
+  margin-bottom: .6em;
+  margin-left: 0.2em;
+  text-shadow: 1px 1px 1px #3d3d3d;
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.about-park{
+  color: #cfcfcf;
+  max-width: 65%;
+  border: solid  #cfcfcf;
+  padding: 5%;
+  align-self: center;
+}
+
+.about-site{
+  max-width: 80%;
+  color: #cfcfcf;
+  align-self: center;
+  border: solid#1c5e30;
+  padding: 5%;
+  margin-top: 5%;
+}
+
+.park span{
+  margin-left: 2em;
+}
+
+/* @media only screen and (max-width: 400px){
+  .park{
+    flex-direction: column;
+    max-width: 320px;
+  }
+  .park span{
+    margin-left: 2em;
+  }
+} */

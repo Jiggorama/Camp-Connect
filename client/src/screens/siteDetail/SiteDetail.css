@@ -1,0 +1,23 @@
+.site-detail{
+margin-top: 1em;
+width: 100%;
+}
+.img-container{
+  padding: .4em;
+  background-color: #c5c1b7cb;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  height: min-content;
+  width: min-content;
+}
+.img-container img{
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  /* width: 360px;
+  height: 360px; */
+  box-shadow: 0.5em 0.5em 0.5em #3d3d3d;
+}
+.info-container{
+  color: #cfcfcf
+}

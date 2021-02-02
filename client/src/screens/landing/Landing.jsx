@@ -1,68 +1,18 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import Login from '../login/Login';
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
+import './Landing.css'
 
 const Landing = () => {
-  const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   return (
-    <div>
-      <h1>Green Ridge State Forest</h1>
-      <div>
-        <h3>about park</h3>
-        <p>lorum ipsum</p>
+    <div className='landing'>
+      <div className='park'>Green Ridge <span>State Forest</span></div>
+      <div className='about-park'>
+        <p>Welcome to Green Ridge State Forest. At 49,000 acres, Green Ridge is the largest contiguous block of public land in Maryland. Located within the Ridge and Valley Province of the Appalachian Mountains it is rich in both both natural and cultural heritage</p>
       </div>
-      <div>
-        <h3>about site</h3>
-        <p>lorum ipsum</p>
+      <div className='about-site'>
+        <p>Camp Connect is a campsite tracking tool for Green Ridge state forest in Flinstone MD. The User will be able to track which campsites of the 100 available sites at the park they have visited. Each campsite will have an overview screen with details and features about that site. Users can leave comments on specific site as well as edit and delete those comments.</p>
       </div>
-      <button type="button" onClick={handleOpen}>
-        react-transition-group
-      </button>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <Login/>
-            <div onClick={handleClose}>x</div>
-          </div>
-        </Fade>
-      </Modal>
+      
     </div>
     
   );

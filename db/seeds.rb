@@ -17,8 +17,8 @@ Site.destroy_all
 
 puts "#{User.count} admin created"
 
-5.times do |i|
-  Site.create!(name: "Site #{i+1}",image: "No url provided", description: 'no description provided' )
+100.times do |i|
+  Site.create!(name: "Site #{i+1}",image: "https://thedyrt.imgix.net/photo/114987/media/green-ridge-state-forest_cefb28c167ca65108c6142f70ef0c434.jpg?auto=format&fit=fillmax&w=547.265625&ixlib=ember-1.0.16", description: 'I haven\'t stayed at this site but leave some comments and I will build a description!' )
 end
 
 puts "#{Site.count} campsites created"

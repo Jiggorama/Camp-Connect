@@ -8,8 +8,8 @@ const Layout = (props) => {
   return (
     <div className='layout'>
     <header className ='header'>
-      <h3><Link to ='/'>Camp <br/>Connect</Link></h3>
-      {user && <div className="user-name">{user.username}</div>}
+      <div className='logo'><Link to ='/'>Camp <br/><span className='span'>Connect</span></Link></div>
+      {user && <div className="user-name">Welcome<br/><span>{user.username}</span></div>}
         <Nav
           user={user}
           logout={logout}
