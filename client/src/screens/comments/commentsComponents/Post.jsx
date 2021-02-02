@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const Post = (props) => {
   
@@ -16,21 +18,22 @@ const Post = (props) => {
     }))
   }
   return (
-    <form onSubmit={(e) => {
+    <form className='form' onSubmit={(e) => {
       e.preventDefault();
       handlePost(campsite.id, formData);
       close()
     }}>
-      <h3>Edit Comment</h3>
-      <label>Comment:
-        <input
-          type='text'
-          name='content'
-          value={content}
-          onChange={handleChange}
-        />
-      </label>
-      <button>Submit</button>
+      <TextField
+        id="outlined-basic"
+        label="Comment"
+        variant="outlined"
+        type='text'
+        name='content'
+        value={content}
+        onChange={handleChange}
+      />
+      
+      <Button variant="contained" id='form-button' type='submit' size='small'>Submit</Button>
     </form>
   );
 };

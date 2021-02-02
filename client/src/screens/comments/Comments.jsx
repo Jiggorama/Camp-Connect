@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 import { deleteComment, postComment, putComment } from '../../services/comments';
 import CustomModal from '../../components/customModal/CustomModal'
 import Edit from './commentsComponents/Edit';
@@ -48,21 +49,22 @@ const Comments = (props) => {
       comments: [...prevState.comments, newComment]
     }))
   }
+  // onClick={handleOpenPost}
   return (
     <>
-    {/* <div>Comments</div> */}
-      {user && <button onClick={handleOpenPost}>Leave A Comment</button>}
-    <div className='comments'>
+      {user && <Button variant="contained" id='post' onClick={handleOpenPost}>Comment</Button>}
+      <div className='comments'>
+        <div className='posts-title'>Comments</div>
       {campsite.comments.length ? 
         campsite.comments.reverse().map(comment => {
           return (
             <div className='comment' key={comment.id}>
-              <div className='info'>
-                <div>{comment.user.username}:</div>
+              <div className='comment-info'>
+                <div className='poster'>{comment.user.username}:</div>
                 { user && comment.user_id === user.id ?
                   <div className = 'user-controls'>
-                  <div className='button' onClick={()=>handleOpenEdit(comment)}><EditIcon/></div>
-                  <div className='button' onClick={() => handleDelete(comment.id)}><DeleteIcon/></div>
+                  <div className='comment-button' onClick={()=>handleOpenEdit(comment)}><EditIcon/></div>
+                  <div className='comment-button' onClick={() => handleDelete(comment.id)}><DeleteIcon/></div>
                 </div> : <></>}
               </div>
               <div className='content'>{comment.content}</div>

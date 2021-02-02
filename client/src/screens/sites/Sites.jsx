@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import './Sites.css'
 
 const Sites = (props) => {
-  const {sites} = props
+  const { sites } = props
+
   return (
     <>
       <div className='title'>Campsites:</div>
     <div className='campsites'>
-      {sites.map(site => {
+      {sites.sort().map(site => {
         return(
           <div className='campsite' key = {site.id}>
           <Link to = {`/sites/${site.id}`}>
