@@ -3,9 +3,14 @@
 ## Overview
 
 _**Camp Connect**_ is a campsite tracking tool for Green Ridge state forest in Flinstone MD.  The User will be able to track which campsites of the 100 available sites at the park they have visited.  Each campsite will have an overview screen with details and features about that site.  Users can leave comments on specific site as well as edit and delete those comments. This application is built with the React on Rails framework utilizing a Ruby on Rails backend and a React frontend UI.
-
-
 <br>
+
+### Deployed Urls
+
+- Frontend
+- https://relaxed-lamport-71c281.netlify.app/
+- Backend
+- https://campconnect-api.herokuapp.com/sites
 
 ## MVP
 
