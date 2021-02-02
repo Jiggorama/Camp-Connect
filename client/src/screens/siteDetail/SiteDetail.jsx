@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Comments from '../comments/Comments';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { getOneSite, visited, unvisited } from '../../services/campsites';
 import './SiteDetail.css'
 
@@ -43,22 +45,22 @@ const SiteDetail = (props) => {
           <img src={campsite.image} alt='No Image Provided' />
         </div>
         <div className='info-container'>
-          <div>{campsite.name}</div>
+          <div className='site-name'>{campsite.name}</div>
           {user && <>
             {campsite.users.some(camper => {
               return camper.id === user.id
             }) ?
             <div className = 'visited'>
-                <div>visited</div>
-                <button onClick={removeVisited}>Remove</button>
+                <div className='yes'>visited</div>
+                <div onClick={removeVisited}><RemoveCircleOutlineIcon/></div>
               </div> :
               <div className = 'visited'>
-                <div>visited?</div>
-                <button onClick={addVisited}>Yes</button>
+                <div className='no'>visited?</div>
+                <div onClick={addVisited}><AddCircleOutlineIcon/></div>
               </div>
             }
-            <div>{campsite.description}</div>
           </>}
+            <div className='description'>{campsite.description}</div>
         </div>
         <Comments campsite={campsite} user={user} setCampsite={setCampsite}/>
       </div>

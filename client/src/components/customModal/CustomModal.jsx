@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import './CustomModal.css'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -11,10 +12,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#cfcfcf',
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    position: 'relative',
   },
 }));
 
@@ -39,7 +41,7 @@ export default function CustomModal(props) {
         <Fade in={open}>
           <div className={classes.paper}>
             {props.children}
-            <div onClick = {() => close()}>+</div>
+            <div className= 'close' onClick = {() => close()}>+</div>
             </div>
         </Fade>
       </Modal>
