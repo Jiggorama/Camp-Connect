@@ -52,7 +52,6 @@ const Comments = (props) => {
   // onClick={handleOpenPost}
   return (
     <>
-    {/* <div>Comments</div> */}
       {user && <Button variant="contained" id='post' onClick={handleOpenPost}>Comment</Button>}
       <div className='comments'>
         <div className='posts-title'>Comments</div>
