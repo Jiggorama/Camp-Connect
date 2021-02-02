@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Comments from '../comments/Comments';
 import { getOneSite, visited, unvisited } from '../../services/campsites';
+import './SiteDetail.css'
 
 const SiteDetail = (props) => {
   const [campsite, setCampsite] = useState()
@@ -42,22 +43,22 @@ const SiteDetail = (props) => {
           <img src={campsite.image} alt='No Image Provided' />
         </div>
         <div className='info-container'>
+          <div>{campsite.name}</div>
           {user && <>
             {campsite.users.some(camper => {
               return camper.id === user.id
             }) ?
-              <>
-                <p>visited</p>
+            <div className = 'visited'>
+                <div>visited</div>
                 <button onClick={removeVisited}>Remove</button>
-              </> :
-              <>
-                <p>visited?</p>
+              </div> :
+              <div className = 'visited'>
+                <div>visited?</div>
                 <button onClick={addVisited}>Yes</button>
-              </>
+              </div>
             }
+            <div>{campsite.description}</div>
           </>}
-          <h3>{campsite.name}</h3>
-          <p>{campsite.description}</p>
         </div>
         <Comments campsite={campsite} user={user} setCampsite={setCampsite}/>
       </div>

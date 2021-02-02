@@ -23,7 +23,7 @@ export default function CustomModal(props) {
   const { open, close } = props
   
   return (
-    <div>
+    <>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -43,6 +43,6 @@ export default function CustomModal(props) {
             </div>
         </Fade>
       </Modal>
-    </div>
+    </>
   );
 }

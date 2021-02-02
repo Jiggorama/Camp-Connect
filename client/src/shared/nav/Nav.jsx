@@ -19,14 +19,14 @@ const Nav = (props) => {
 
 const authenticatedOptions = (
   <>
-    <button className="link" onClick={logout}>Logout</button>
+    <div className="link" onClick={logout}>Logout</div>
   </>
 )
 
 const unauthenticatedOptions = (
   <>
-    <button className="link" onClick={handleOpenLogin}>Login</button>
-    <button className="link" onClick={handleOpenRegister}>Register</button>
+    <div className="link" onClick={handleOpenLogin}>Login</div>
+    <div className="link" onClick={handleOpenRegister}>Register</div>
   </>
 )
 
