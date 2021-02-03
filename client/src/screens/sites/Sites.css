@@ -9,15 +9,16 @@
 }
 .campsites{
   width: 90%;
-  max-width: 100vw;
+  max-width: 297px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+  align-self: center;
 }
 
 .campsite{
-  background-color: #c5c1b7d3;
+  background-image: linear-gradient(to right, #c5c1b7d3, #918c7dd3);
   width: 80px;
   height: auto;
   text-align: center;
@@ -29,4 +30,26 @@
 .campsite a{
   text-decoration: none;
   color: #063505;
-  }
+}
+  
+@media only screen and (min-width: 540px){
+.campsite{
+  font-size: 1.2em;
+  width: 90px;
+}
+.campsites{
+  max-width: 675px;
+}
+}
+@media only screen and (min-width: 768px){
+.title{
+  font-size: 3em;
+}
+.campsite{
+  font-size: 1.5em;
+  width: 100px;
+}.campsites{
+  max-width: 858px;
+  align-self: center;
+}
+}

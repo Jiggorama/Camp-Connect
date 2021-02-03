@@ -45,21 +45,23 @@ const SiteDetail = (props) => {
           <img src={campsite.image} alt='No Image Provided' />
         </div>
         <div className='info-container'>
+          <div className='sidebyside'>
           <div className='site-name'>{campsite.name}</div>
           {user && <>
             {campsite.users.some(camper => {
               return camper.id === user.id
             }) ?
             <div className = 'visited'>
-                <div className='yes'>visited</div>
-                <div onClick={removeVisited}><RemoveCircleOutlineIcon/></div>
+                <div className='yes'>Visited</div>
+                <div onClick={removeVisited} className='icon'><RemoveCircleOutlineIcon/></div>
               </div> :
               <div className = 'visited'>
-                <div className='no'>visited?</div>
-                <div onClick={addVisited}><AddCircleOutlineIcon/></div>
+                <div className='no'>Visited?</div>
+                <div onClick={addVisited} className='icon'><AddCircleOutlineIcon/></div>
               </div>
             }
           </>}
+          </div>
             <div className='description'>{campsite.description}</div>
         </div>
         <Comments campsite={campsite} user={user} setCampsite={setCampsite}/>

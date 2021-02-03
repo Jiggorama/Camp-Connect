@@ -72,7 +72,7 @@ const Comments = (props) => {
           )
         })
         :
-        <div>Be the first to comment on {campsite.name}</div>
+        <div className='message'>Be the first to comment on {campsite.name}</div>
       }
       <CustomModal
         open={openPost}
