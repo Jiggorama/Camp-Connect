@@ -31,6 +31,9 @@
   text-decoration: none;
   color: #063505;
 }
+.camped-here{
+  border: 3px solid #14ec10;
+}
   
 @media only screen and (min-width: 540px){
 .campsite{

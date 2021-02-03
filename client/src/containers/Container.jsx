@@ -23,7 +23,7 @@ export default function MainContainer(props) {
         />
       </Route>
       <Route path='/sites'>
-        <Sites sites={sites} />
+        <Sites sites={sites} user={user}/>
       </Route>
       <Route path='/'>
         <Landing/>
