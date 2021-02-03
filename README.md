@@ -8,7 +8,7 @@ _**Camp Connect**_ is a campsite tracking tool for Green Ridge state forest in F
 ### Deployed Urls
 
 - Frontend
-- https://relaxed-lamport-71c281.netlify.app/
+- https://camp-connect.netlify.app/
 - Backend
 - https://campconnect-api.herokuapp.com/sites
 
