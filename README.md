@@ -96,24 +96,24 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Back end build  |    H     |     3 hrs      |     --     |     TBD     |
-| Back end controllers  |    H     |     3 hrs      |     --     |     TBD     |
-|Back end Auth |    H     |     3 hrs      |     --    |     TBD     |
-| Campsite seed data |    H     |     3 hrs      |    --     |     TBD     |
-| Landing Page |    H     |     3 hrs      |     --     |     TBD     |
-| List all sites |    H     |     3 hrs      |     --     |     TBD     |
-| SiteDetail |    H     |     3 hrs      |     --     |     TBD     |
-| FrontendAuth |    H     |     3 hrs      |     --     |     TBD     |
-| RenderComments |    H     |     3 hrs      |     --     |     TBD     |
-| Services Api Calls |    H     |     3 hrs      |     --     |     TBD     |
-| Edit comments |    H     |     3 hrs      |     --     |     TBD     |
-| Delete Comments |    H     |     3 hrs      |     --     |     TBD     |
-| Landing Page styling|    H     |     3 hrs      |     --     |     TBD     |
-| List all sites styling|    H     |     3 hrs      |     --     |     TBD     |
-| SiteDetail styling|    H     |     3 hrs      |     --     |     TBD     |
-| RenderComments styling|    H     |     3 hrs      |     --     |     TBD     |
-| Advanced Css |    H     |     3 hrs      |     --     |     TBD     |
-| TOTAL               |          |     51 hrs      |    --     |     TBD     |
+| Back end build  |    H     |     3 hrs      |     3hrs     |     3hrs     |
+| Back end controllers  |    H     |     3 hrs      |     3hrs     |     6hrs     |
+|Back end Auth |    H     |     3 hrs      |     2hrs    |     8hrs     |
+| Campsite seed data |    H     |     3 hrs      |    1hr     |     9hrs     |
+| Landing Page |    H     |     3 hrs      |     3hrs     |     12hrs     |
+| List all sites |    H     |     3 hrs      |     2hrs     |     14hrs     |
+| SiteDetail |    H     |     3 hrs      |     2hrs     |     16hrs     |
+| FrontendAuth |    H     |     3 hrs      |     2hrs     |     18hrs     |
+| RenderComments |    H     |     3 hrs      |     3hrs     |     21hrs     |
+| Services Api Calls |    H     |     3 hrs      |     3hrs     |     24hrs     |
+| Edit comments |    H     |     3 hrs      |     3hrs     |     27hrs     |
+| Delete Comments |    H     |     3 hrs      |     3hrs     |     30hrs     |
+| Landing Page styling|    H     |     3 hrs      |     3hrs     |     33hrs     |
+| List all sites styling|    H     |     3 hrs      |     2hrs     |     35hrs     |
+| SiteDetail styling|    H     |     3 hrs      |     2hrs     |     37hrs     |
+| RenderComments styling|    H     |     3 hrs      |    2hrs      |     39hrs     |
+| Advanced Css |    H     |     3 hrs      |     --     |     39hrs     |
+| TOTAL               |          |     51 hrs      |    39hrs     |     39hrs     |
 
 
 <br>
@@ -132,14 +132,48 @@ src
 
 ## Post-MVP
 
-> I want to be able to sort campsites by features
+> Able to sort campsites by features
+> Indicate which site are visited on site listing screen
+> Search and sort functionality
 
 ***
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+> Conditional rendering on my site detail page.
+```<>
+    { campsite &&  
+      
+      <div className='site-detail'>
+        <div className='img-container'>
+          <img src={campsite.image} alt='No Image Provided' />
+        </div>
+        <div className='info-container'>
+          <div className='sidebyside'>
+          <div className='site-name'>{campsite.name}</div>
+          {user && <>
+            {campsite.users.some(camper => {
+              return camper.id === user.id
+            }) ?
+            <div className = 'visited'>
+                <div className='yes'>Visited</div>
+                <div onClick={removeVisited} className='icon'><RemoveCircleOutlineIcon/></div>
+              </div> :
+              <div className = 'visited'>
+                <div className='no'>Visited?</div>
+                <div onClick={addVisited} className='icon'><AddCircleOutlineIcon/></div>
+              </div>
+            }
+          </>}
+          </div>
+            <div className='description'>{campsite.description}</div>
+        </div>
+        <Comments campsite={campsite} user={user} setCampsite={setCampsite}/>
+      </div>
+    }
+  </>```
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution.
+> Updating Campsite cuases rendering out of order
+> Toggling visited changes comment render order
