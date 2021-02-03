@@ -9,7 +9,7 @@ const Sites = (props) => {
     <>
       <div className='title'>Campsites:</div>
     <div className='campsites'>
-      {sites.sort().map(site => {
+        {sites.sort().map(site => {
         return(
           <div className='campsite' key = {site.id}>
           <Link to = {`/sites/${site.id}`}>
@@ -24,3 +24,28 @@ const Sites = (props) => {
 };
 
 export default Sites;
+{/* <>
+{user ?
+<>
+    {site.users.some(camper => {
+return camper.id === user.id
+}) ?
+<div className='campsite--camped-here' key = {site.id}>
+<Link to = {`/sites/${site.id}`}>
+{site.name}
+</Link>
+</div> :
+<div className='campsite' key = {site.id}>
+<Link to = {`/sites/${site.id}`}>
+{site.name}
+</Link>
+</div>
+    } 
+  </> :
+  <div className='campsite' key = {site.id}>
+<Link to = {`/sites/${site.id}`}>
+{site.name}
+</Link>
+</div>
+}
+</> */}
